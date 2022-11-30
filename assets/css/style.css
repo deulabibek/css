@@ -432,7 +432,7 @@ header .navbar ul li a:hover {
 .about .row .image img {
     margin: 4rem;
     width: 30rem;
-    height: auto;
+    height: 43rem;
     border-radius: 5%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
     mix-blend-mode: luminosity;
@@ -553,7 +553,7 @@ header .navbar ul li a:hover {
 /* skills section starts */
 
 .skills {
-    min-height: 90vh;
+    min-height: 80vh;
     background: linear-gradient(to bottom, #57059e, #4a00e0);
 }
 
@@ -1469,3 +1469,34 @@ form .button-area {
 
 
 /* scroll top ends */
+
+.containers img {
+    width: 15%;
+    height: 15%;
+    object-fit: cover;
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, #0004);
+    transform-origin: center;
+    transform: perspective(800px) rotateY(25deg);
+    transition: 0.5s;
+    -webkit-transform: perspective(800px) rotateY(25deg);
+    -moz-transform: perspective(800px) rotateY(25deg);
+    -ms-transform: perspective(800px) rotateY(25deg);
+    -o-transform: perspective(800px) rotateY(25deg);
+}
+
+.containers {
+    max-width: 600px;
+    max-height: 350px;
+    display: inline;
+    align-items: center;
+    gap: 10px;
+}
+
+.containers:hover img {
+    opacity: 0.3;
+}
+
+.containers img:hover {
+    transform: perspective(800px) rotateY(0deg);
+    opacity: 1;
+}
