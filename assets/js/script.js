@@ -57,26 +57,25 @@ $(document).ready(function() {
 
 });
 
-function sendMail() {
+function sendMailMe() {
 
     var params = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
-        // phone: document.getElementById("phone").value,
+
 
     };
 
 
     const serviceID = "service_29v5nsx";
-    const templateID = "template_meqwj1r";
+    const templateID = "template_wzleb33";
 
     emailjs.send(serviceID, templateID, params)
         .then(res => {
             document.getElementById("name").value = "";
             document.getElementById("email").value = "";
             document.getElementById("message").value = "";
-            // document.getElementById("phone").value = "";
             console.log(res);
             alert("Your message sent successfully!!")
 
