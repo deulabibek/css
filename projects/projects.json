@@ -37,5 +37,15 @@
             "view": "#",
             "code": "https://github.com/BibekDeula"
         }
+    },
+    {
+        "name": "Urja Khabar",
+        "desc": "Basic News-Portal based on PHP and MySQL database. Made with HTML, CSS, JavaScript and backend with PHP.",
+        "image": "https://urjakhabar.com/",
+        "category": "basicweb",
+        "links": {
+            "view": "https://urjakhabar.com/",
+            "code": "https://github.com/BibekDeula"
+        }
     }
 ]
