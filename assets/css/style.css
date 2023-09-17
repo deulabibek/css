@@ -401,7 +401,10 @@ header .navbar ul li a:hover {
     .home .content p span {
         font-size: 2.2rem;
     }
-    
+    #bbk_image {
+     margin-top: -2rem;
+    }
+
 }
 
 
