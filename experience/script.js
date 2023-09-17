@@ -74,3 +74,5 @@ document.addEventListener('visibilitychange',
             $("#favicon").attr("href", "/assets/images/favhand.png");
         }
     });
+
+    
