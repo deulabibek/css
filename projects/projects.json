@@ -1,30 +1,61 @@
-[{
+[
+    {
         "name": "Ecommerce-Website",
         "desc": "Shoester is a web-based e-commerce platform",
         "image": "shoe",
         "category": "mern",
         "links": {
-            "view": "#",
+            "view": "https://jhigu.store/",
             "code": "https://github.com/BibekDeula"
         }
     },
     {
         "name": "Accounting Software",
-        "desc": "Accounting Software with Admin Dashboard . WebApp, ready to use for business.",
+        "desc": "Accounting Software with Admin Dashboard. WebApp, ready to use for business.",
         "image": "flipkartmern",
         "category": "mern",
         "links": {
-            "view": "#",
+            "view": "https://example.com/accounting",
             "code": "https://github.com/BibekDeula"
         }
     },
     {
-        "name": "ResumeGen",
-        "desc": "Laravel Basic Resume Generator which will generate customized resume in few minutes on your requirements.",
-        "image": "resumegen",
+        "name": "Bricks Cafe",
+        "desc": "Order Food Online using Bricks Cafe",
+        "image": "bricks",
         "category": "mern",
         "links": {
-            "view": "#",
+            "view": "https://www.brickscafe.com.np/",
+            "code": "https://github.com/BibekDeula"
+        }
+    },
+    {
+        "name": "Nepal Status",
+        "desc": "Nepal Status - A Digital Newspaper across the universe from Nepal",
+        "image": "nepal",
+        "category": "mern",
+        "links": {
+            "view": "https://nepalstatus.com/",
+            "code": "https://github.com/BibekDeula"
+        }
+    },
+    {
+        "name": "EPS Topik Nepal",
+        "desc": "EPS Topik Nepal is designed for students and institute who want to learn Korean language and test themselves",
+        "image": "eps",
+        "category": "mern",
+        "links": {
+            "view": "https://epstopikexams.com/login",
+            "code": "https://github.com/BibekDeula"
+        }
+    },
+    {
+        "name": "Nepal Marron",
+        "desc": "Nepal Marron is a Japanese Trekking site",
+        "image": "japan",
+        "category": "mern",
+        "links": {
+            "view": "https://nepalmarron.com/",
             "code": "https://github.com/BibekDeula"
         }
     },
@@ -34,9 +65,8 @@
         "image": "tsfbank",
         "category": "lamp",
         "links": {
-            "view": "#",
+            "view": "https://example.com/banking",
             "code": "https://github.com/BibekDeula"
         }
     }
-
 ]
