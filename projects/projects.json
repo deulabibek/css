@@ -61,7 +61,7 @@
     },
     {
         "name": "PHP Banking Website",
-        "desc": "Basic Banking System based on PHP and MySQL database. Made with HTML, CSS, JavaScript and backend with PHP.",
+        "desc": "Basic Banking System based on PHP and MySQL database. Made with VueJs, HTML, CSS, JavaScript and backend with PHP.",
         "image": "tsfbank",
         "category": "lamp",
         "links": {
