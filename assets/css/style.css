@@ -393,7 +393,7 @@ header .navbar ul li a:hover {
         margin-top: 12rem;
     }
     .home .image img {
-        margin-top: -12rem;
+        margin-top: -2rem;
     }
     .home .content p {
         font-size: 2.2rem;
@@ -401,6 +401,10 @@ header .navbar ul li a:hover {
     .home .content p span {
         font-size: 2.2rem;
     }
+    #bbk_image {
+     margin-top: -2rem;
+    }
+
 }
 
 
@@ -425,23 +429,24 @@ header .navbar ul li a:hover {
 }
 
 .about .row .image {
-    text-align: center;
+    
+    text-align: right;
     flex: 1 1 35rem;
 }
 
 .about .row .image img {
     margin: 4rem;
     width: 30rem;
-    height: 43rem;
+    height: 41rem;
     border-radius: 5%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-    mix-blend-mode: luminosity;
+    mix-blend-mode: normal;    
     transition: 0.3s;
     cursor: pointer;
 }
 
 .about .row .image img:hover {
-    mix-blend-mode: normal;
+        mix-blend-mode: luminosity;
 }
 
 .about .row .content {
