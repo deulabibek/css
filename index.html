@@ -480,10 +480,12 @@
         #displayImage {
             width: 100%;
             max-width: 100%;
+            display: none
         }
     </style>
         <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/"> Bibek Deula</a></h1>
-         <img id="displayImage" src="assets\images\profile2.jpg" alt="Displayed Image">
+                     <img id="displayImage" src="assets/images/profile2.jpg" alt="Bibek Deula's Profile Picture" data-image-name="Bibek Deula's Profile Picture">
+
    <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/"> Bibek Deula</a></h1>
 
     <!-- The Modal -->
@@ -494,7 +496,7 @@
         </div>
     </div>
 
-    <script>
+     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
 
@@ -504,10 +506,18 @@
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the link, open the modal 
+        // Get the image name element
+        var imageName = document.getElementById("imageName");
+
+        // Get the image element
+        var displayImage = document.getElementById("displayImage");
+
+        // When the user clicks the link, open the modal and set the image name
         heartLink.onclick = function(event) {
             event.preventDefault();
             modal.style.display = "block";
+            var imgName = displayImage.getAttribute('data-image-name');
+            imageName.textContent = imgName;
         }
 
         // When the user clicks on <span> (x), close the modal
