@@ -428,7 +428,7 @@
                 </div>
             </div>
         </div>
-   <style>
+  <style>
         body {
             font-family: Arial, sans-serif;
         }
@@ -444,55 +444,129 @@
             font-size: 24px;
         }
         /* Modal styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #displayImage {
-            width: 100%;
-            max-width: 100%;
-        }
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it appears on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Darker background for better contrast */
+    backdrop-filter: blur(8px); /* Blur effect for the background */
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #ffffff, #f9f9f9); /* Gradient background */
+    border-radius: 15px; /* Rounded corners */
+    margin: 5% auto; /* Adjusted for vertical positioning */
+    padding: 20px; /* Increased padding */
+    border: 1px solid #ddd; /* Light border */
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Fixed max-width */
+    text-align: center;
+    position: relative;
+    max-height: 80vh; /* Limit the height */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Enhanced shadow for depth */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Modal open animation */
+.modal-content.show {
+    transform: scale(1.05); /* Slightly enlarged */
+    opacity: 1;
+}
+
+/* Close button */
+.close {
+    color: #666;
+    float: right;
+    font-size: 30px; /* Larger size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* Darker color on hover */
+    text-decoration: none;
+}
+
+/* Image container */
+.image-container {
+    overflow: hidden; /* Hide overflow of zoomed image */
+    position: relative; /* Positioning context for zoom effect */
+    display: inline-block; /* Fit the size of the content */
+    width: 100%; /* Responsive width */
+    max-height: 60vh; /* Restrict height of container */
+}
+
+/* Image styles */
+#displayImage {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.5s ease, filter 0.5s ease; /* Smooth zoom and filter transition */
+}
+
+/* Zoom effect */
+.image-container:hover #displayImage {
+    transform: scale(1.3); /* Scale up the image */
+    filter: brightness(1.2); /* Slight brightness adjustment */
+}
+
+
+/* Navigation buttons */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Optional: Add a shadow to the modal content for a more professional look */
+.modal-content {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
     </style>
-        <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/"> Bibek Deula</a></h1>
+    <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/">Bibek Deula</a></h1>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
+            <h1>Gallery</h1>
             <span class="close">&times;</span>
+            <button class="nav-button prev">&lt;</button>
             <img id="displayImage" src="assets/images/profile2.jpg" alt="Bibek Deula's Profile Picture" data-image-name="Bibek Deula's Profile Picture">
+            <button class="nav-button next">&gt;</button>
         </div>
     </div>
 
-     <script>
+    <script>
         // Get the modal
         var modal = document.getElementById("myModal");
 
@@ -502,18 +576,34 @@
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // Get the image name element
-        var imageName = document.getElementById("imageName");
+        // Get the navigation buttons
+        var prevButton = document.getElementsByClassName("prev")[0];
+        var nextButton = document.getElementsByClassName("next")[0];
 
         // Get the image element
         var displayImage = document.getElementById("displayImage");
+
+        // Image sources and names
+        var images = [
+            { src: 'assets/images/profile2.jpg', name: "Bibek Deula's Profile Picture" },
+            { src: 'assets/images/bike.jpg', name: "bibek deula photo" },
+            { src: 'assets/images/workout.jpg', name: "deula bibek collection" },
+            { src: 'assets/images/worship.jpg', name: "Bibek deula gallery" }
+        ];
+        var currentIndex = 0;
+
+        // Function to update the displayed image
+        function updateImage(index) {
+            displayImage.src = images[index].src;
+            displayImage.alt = images[index].name;
+            displayImage.setAttribute('data-image-name', images[index].name);
+        }
 
         // When the user clicks the link, open the modal and set the image name
         heartLink.onclick = function(event) {
             event.preventDefault();
             modal.style.display = "block";
-            var imgName = displayImage.getAttribute('data-image-name');
-            imageName.textContent = imgName;
+            updateImage(currentIndex);
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -526,6 +616,18 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // When the user clicks on the prev button, show the previous image
+        prevButton.onclick = function() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateImage(currentIndex);
+        }
+
+        // When the user clicks on the next button, show the next image
+        nextButton.onclick = function() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateImage(currentIndex);
         }
     </script>
     </section>
