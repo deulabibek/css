@@ -436,11 +436,11 @@
             text-align: center;
             margin-top: 50px;
         }
-        #heartLink {
+        .heartLink {
             text-decoration: none;
             color: red;
         }
-        #heartLink .fa-heart {
+        .heartLink .fa-heart {
             font-size: 24px;
         }
         /* Modal styles */
@@ -553,7 +553,7 @@
 }
 
     </style>
-    <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/">Bibek Deula</a></h1>
+    <h1 class="credit">Designed with <a href="" class="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/">Bibek Deula</a></h1>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -571,7 +571,7 @@
         var modal = document.getElementById("myModal");
 
         // Get the link that opens the modal
-        var heartLink = document.getElementById("heartLink");
+        var heartLink = document.getElementsByClassName("heartLink");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
