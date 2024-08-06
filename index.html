@@ -428,9 +428,24 @@
                 </div>
             </div>
         </div>
-
-        <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/"> Bibek Deula</a></h1>
-
+    <style>
+        #displayImage {
+            display: none; /* Hide the image initially */
+        }
+    </style>
+        <h1 class="credit">Designed with <a href="" id="heartLink"><i class="fa fa-heart pulse"></i></a> by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/"> Bibek Deula</a></h1>
+         <img id="displayImage" src="assets\images\profile2.jpg" alt="Displayed Image">
+ <script>
+        document.getElementById('heartLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            var img = document.getElementById('displayImage');
+            if (img.style.display === 'none') {
+                img.style.display = 'block';
+            } else {
+                img.style.display = 'none';
+            }
+        });
+    </script>
     </section>
     <!-- footer section ends -->
 
