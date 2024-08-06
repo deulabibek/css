@@ -428,8 +428,10 @@
                 </div>
             </div>
         </div>
-     <style>
-    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         .credit {
             text-align: center;
             margin-top: 50px;
@@ -463,6 +465,7 @@
             width: 80%;
             max-width: 600px;
             text-align: center;
+            position: relative;
         }
         .close {
             color: #aaa;
@@ -485,18 +488,34 @@
             font-size: 16px;
             font-weight: bold;
         }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+        }
     </style>
-      <h1 class="credit">Designed by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/">Bibek Deula</a></h1>
+       <h1 class="credit">Designed by <a href="https://www.linkedin.com/in/bibek-deula-1a4736220/">Bibek Deula</a></h1>
 
-    <!-- Image Links -->
-    <a href="#" class="image-link" data-image-src="assets/images/profile2.jpg" data-image-name="Bibek Deula's Profile Picture 1">
-        <i class="fa fa-heart pulse"></i> Image 1
-    </a>
-    <a href="#" class="image-link" data-image-src="assets/images/hero.jpg" data-image-name="Bibek Deula's Profile Picture 2">
-        <i class="fa fa-heart pulse"></i> Image 2
-    </a>
-    <a href="#" class="image-link" data-image-src="assets/images/hero1.jpg" data-image-name="Bibek Deula's Profile Picture 3">
-        <i class="fa fa-heart pulse"></i> Image 3
+    <!-- Single Image Link -->
+    <a href="#" class="image-link" id="heartLink">
+        <i class="fa fa-heart pulse"></i> View Images
     </a>
 
     <!-- The Modal -->
@@ -505,12 +524,24 @@
             <span class="close">&times;</span>
             <img id="modalImage" src="" alt="">
             <div id="imageName"></div> <!-- Image name -->
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
         </div>
     </div>
 
     <script>
+        // Images array
+        var images = [
+            {src: "assets/images/profile2.jpg", name: "Bibek Deula's Profile Picture 1"},
+            {src: "assets/images/hero.jpg", name: "Bibek Deula's Profile Picture 2"},
+            {src: "assets/images/hero1.jpg", name: "Bibek Deula's Profile Picture 3"}
+        ];
+
         // Get the modal
         var modal = document.getElementById("myModal");
+
+        // Get the link that opens the modal
+        var heartLink = document.getElementById("heartLink");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
@@ -519,20 +550,26 @@
         var modalImage = document.getElementById("modalImage");
         var imageName = document.getElementById("imageName");
 
-        // Get all image links
-        var imageLinks = document.getElementsByClassName("image-link");
+        // Get the prev and next buttons
+        var prev = document.getElementsByClassName("prev")[0];
+        var next = document.getElementsByClassName("next")[0];
 
-        // Add click event to each image link
-        for (var i = 0; i < imageLinks.length; i++) {
-            imageLinks[i].onclick = function(event) {
-                event.preventDefault();
-                modal.style.display = "block";
-                var imgSrc = this.getAttribute("data-image-src");
-                var imgName = this.getAttribute("data-image-name");
-                modalImage.src = imgSrc;
-                modalImage.alt = imgName;
-                imageName.textContent = imgName;
-            }
+        // Current image index
+        var currentIndex = 0;
+
+        // Function to show image at index
+        function showImage(index) {
+            modalImage.src = images[index].src;
+            modalImage.alt = images[index].name;
+            imageName.textContent = images[index].name;
+        }
+
+        // When the user clicks the link, open the modal and show the first image
+        heartLink.onclick = function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+            currentIndex = 0;
+            showImage(currentIndex);
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -545,6 +582,18 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // When the user clicks on prev, show the previous image
+        prev.onclick = function() {
+            currentIndex = (currentIndex - 1 + images.length) + % images.length;
+            showImage(currentIndex);
+        }
+
+        // When the user clicks on next, show the next image
+        next.onclick = function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
         }
     </script>
     </section>
